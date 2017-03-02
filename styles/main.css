@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-=======
+
  *, *::before, *::after {
      -moz-box-sizing: border-box;
      -webkit-box-sizing: border-box;
      box-sizing: border-box;
  }
->>>>>>> checkpoint4
 html {
      height: 100%; /* makes sure our HTML takes up 100% of the browser window */
      font-size: 100%;
@@ -35,7 +28,6 @@ html {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
  }
-<<<<<<< HEAD
  .container {
      margin: 0 auto;
      max-width: 64rem;
@@ -60,14 +52,11 @@ html {
      .column.fourth { width: 25%; }
      .column.flow-opposite { float: right; }  
  }
-   /* Style information will go here */
 
- 
  /* Large screens (1024px) */
  @media (min-width: 1024px) {
 	     html { font-size: 120%; }
    /* Style information will go here */
-=======
  .hero-content {
      position: relative; /* positioning will be explained in a resource */
      min-height: 600px;  /* hero content element must be _at least_ 600 pixels */
