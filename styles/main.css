@@ -150,8 +150,7 @@ html {
  .ion-iphone {
      color: rgb(233,50,117);
      font-size: 5rem;
->>>>>>> checkpoint4
- }
+}
 .clearfix::before,
 .clearfix::after {
    content: " ";
