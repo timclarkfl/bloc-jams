@@ -29,6 +29,21 @@
          { title: 'Wrong phone number', duration: '2:15'}
      ]
  };
+ // Checkpoint 11 Assignment Album
+ var albumCheckpoint = {
+     title: 'My Face',
+     artist: 'Some Random Chick',
+     label: 'EM',
+     year: '2017',
+     albumArtUrl: 'assets/images/album_covers/21.png',
+     songs: [
+         { title: 'Aint it pretty?', duration: '4:35' },
+         { title: 'And my sunglasses', duration: '5:24' },
+         { title: 'IN a field', duration: '5:41'},
+         { title: 'Where is the beach?', duration: '3:00' },
+         { title: 'Wrong place..sorry', duration: '12:55'}
+     ]
+ };
 
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
@@ -67,4 +82,16 @@ var createSongRow = function(songNumber, songName, songLength) {
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
- };
+	 
+	var albumArray = [albumPicasso, albumMarconi, albumCheckpoint];
+	var albumToggle = document.getElementsByClassName('album-cover-art')[0];
+	var index = 1;
+
+	albumToggle.addEventListener('click', function() {
+	  setCurrentAlbum(albumArray[index]);
+	  index++;
+	  if (index === albumArray.length) {
+		index = 0;
+	  }
+	});
+ }
