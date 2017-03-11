@@ -29,26 +29,27 @@
          { title: 'Wrong phone number', duration: '2:15'}
      ]
  };
- // Checkpoint 11 Assignment Album
+
+ //checkpoint album
  var albumCheckpoint = {
-     title: 'My Face',
-     artist: 'Some Random Chick',
+     title: 'best album',
+     artist: 'Not Taylor Swift',
      label: 'EM',
-     year: '2017',
+     year: '1988',
      albumArtUrl: 'assets/images/album_covers/21.png',
      songs: [
-         { title: 'Aint it pretty?', duration: '4:35' },
-         { title: 'And my sunglasses', duration: '5:24' },
-         { title: 'IN a field', duration: '5:41'},
-         { title: 'Where is the beach?', duration: '3:00' },
-         { title: 'Wrong place..sorry', duration: '12:55'}
+         { title: 'Beat it', duration: '1:01' },
+         { title: 'Black and White', duration: '5:01' },
+         { title: 'Heal the world', duration: '3:21'},
+         { title: 'Not Alone', duration: '3:14' },
+         { title: 'PYT', duration: '2:15'}
      ]
  };
-
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
       + '  <td class="song-item-number">' + songNumber + '</td>'
+	  + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
       + '</tr>'
@@ -81,26 +82,29 @@ var createSongRow = function(songNumber, songName, songLength) {
  };
  
     var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+    var songRows = document.getElementsByClassName('album-view-song-item');
 
-	varplayButtonTemplate = '<a class ="album-song-button"><span class="ion-play"><span></a>';
+	var playButtonTemplate = '<a class ="album-song-button"><span class="ion-play"><span></a>';
 
     window.onload = function() {
-     setCurrentAlbum(albumPicasso);
+        setCurrentAlbum(albumPicasso);
 
-     songListContainer.addEventListener('mouseover', function(event) {
-       
-        if (event.target.parentElement.className === 'album-view-song-item') {
-			
+ 		songListContainer.addEventListener('mouseover', function(event) {
+         
+           // Only target individual song rows during event delegation
+         if (event.target.parentElement.className === 'album-view-song-item') {
              event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
          }
      });
+        
+     }
 		 for (var i = 0; i < songRows.length; i++) {
-         songRows[i].addEventListener('mouseleave', function(event) {
+            songRows[i].addEventListener('mouseleave', function(event) {
              // change back to the number
-			 this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+                this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
          });
      }
-	 
+	
 	var albumArray = [albumPicasso, albumMarconi, albumCheckpoint];
 	var albumToggle = document.getElementsByClassName('album-cover-art')[0];
 	var index = 1;
@@ -112,4 +116,3 @@ var createSongRow = function(songNumber, songName, songLength) {
 		index = 0;
 	  }
 	});
- }
