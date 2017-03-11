@@ -65,6 +65,10 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
  
- window.onload = function() {
+    var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+
+	varplayButtonTemplate = '<a class ="album-song-button"><span class="ion-play"><span></a>';
+
+    window.onload = function() {
      setCurrentAlbum(albumPicasso);
- };
+
