@@ -82,19 +82,21 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
  var findParentByClassName = function(element, wantedClass) {
-     // Assign a variable to a parent element we are checking
-     var currentParent = element.parentElement;
-
-     // If the element's parent class that we're on isn't the same as the target class we want,
-     // move to the next parent element up.
-     while(currentParent.className != wantedClass){
-        currentParent = currentParent.parentElement;
-  }
-
-     // Returns the parent element we want because the loop above stops
-     // once the class we wanted is found.
-     return currentParent;
-
+	 
+      if(currentParent) {
+            while (currentParent.className && currentParent.className != wantedClass) {
+                currentParent = currentParent.parentElement;
+            }
+             if (currentParent.className == wantedClass) {
+                    alert('Parent Found');
+                } 
+             else {
+                    alert("No parent found with that class name");
+                }      
+        } 
+             else {
+            alert('No parent found')
+        }
 };
  // Always return the song item regardless of the song element selected
 var getSongItem = function(element) {
