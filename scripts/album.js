@@ -48,7 +48,6 @@
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number">' + songNumber + '</td>'
 	  + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
@@ -97,14 +96,14 @@ var createSongRow = function(songNumber, songName, songLength) {
          }
      });
         
-     }
+     
 		 for (var i = 0; i < songRows.length; i++) {
             songRows[i].addEventListener('mouseleave', function(event) {
              // change back to the number
                 this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
          });
      }
-	
+	}
 	var albumArray = [albumPicasso, albumMarconi, albumCheckpoint];
 	var albumToggle = document.getElementsByClassName('album-cover-art')[0];
 	var index = 1;
