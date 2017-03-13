@@ -120,17 +120,18 @@ var getSongItem = function(element) {
   }
 
 };
-    var clickHandler = function(targetElement) {
-		var songItem = getSongItem(targetElement);
-		if (currentlyPlayingSong === null) {
+   var clickHandler = function(targetElement) {
+
+     var songItem = getSongItem(targetElement);
+
+     if (currentlyPlayingSong === null) {
          songItem.innerHTML = pauseButtonTemplate;
          currentlyPlayingSong = songItem.getAttribute('data-song-number');
-			
-     }  else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
+     } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
          songItem.innerHTML = playButtonTemplate;
          currentlyPlayingSong = null;
-		 
-	 }  else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
+     
+     } else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
          var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
          currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number');
          songItem.innerHTML = pauseButtonTemplate;
