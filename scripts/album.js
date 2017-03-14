@@ -82,6 +82,16 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
  var findParentByClassName = function(element, wantedClass) {
+	      // Assign a variable to a parent element we are checking
+     var currentParent = element.parentElement;
+
+     while(currentParent.className != wantedClass){
+        currentParent = currentParent.parentElement;
+  }
+
+     return currentParent;
+	 
+	 
 	 
       if(currentParent) {
             while (currentParent.className && currentParent.className != wantedClass) {
@@ -95,7 +105,7 @@ var createSongRow = function(songNumber, songName, songLength) {
                 }      
         } 
              else {
-            alert('No parent found')
+                    alert('No parent found')
         }
 };
  // Always return the song item regardless of the song element selected
