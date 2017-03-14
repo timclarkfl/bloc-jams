@@ -120,18 +120,19 @@ var getSongItem = function(element) {
   }
 
 };
+
     var clickHandler = function(targetElement) {
 		var songItem = getSongItem(targetElement);
 		
 		if (currentlyPlayingSong === null) {
+
          songItem.innerHTML = pauseButtonTemplate;
          currentlyPlayingSong = songItem.getAttribute('data-song-number');
-			
-     }  else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
+     } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
          songItem.innerHTML = playButtonTemplate;
          currentlyPlayingSong = null;
-		 
-	 }  else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
+     
+     } else if (currentlyPlayingSong !== songItem.getAttribute('data-song-number')) {
          var currentlyPlayingSongElement = document.querySelector('[data-song-number="' + currentlyPlayingSong + '"]');
          currentlyPlayingSongElement.innerHTML = currentlyPlayingSongElement.getAttribute('data-song-number');
          songItem.innerHTML = pauseButtonTemplate;
@@ -152,16 +153,19 @@ var getSongItem = function(element) {
     window.onload = function() {
         setCurrentAlbum(albumPicasso);
 
- 		songListContainer.addEventListener('mouseover', function(event) {
-         
-           // Only target individual song rows during event delegation
-         if (event.target.parentElement.className === 'album-view-song-item') {
-             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+ 	songListContainer.addEventListener('mouseover', function(event) {
+          if (event.target.parentElement.className === 'album-view-song-item') {
+            event.target.parentElement.querySelector('.song-item-number').innerHTML =   playButtonTemplate;
+            var songItem = getSongItem(event.target);
+
+            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+               songItem.innerHTML = playButtonTemplate;
+            }
          }
      });
         
      
-		 for (var i = 0; i < songRows.length; i++) {
+		    for (var i = 0; i < songRows.length; i++) {
             songRows[i].addEventListener('mouseleave', function(event) {
 
 			 // #1	
