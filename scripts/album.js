@@ -1,4 +1,4 @@
- // Example Album
+// Example Album
  var albumPicasso = {
      title: 'The Colors',
      artist: 'Pablo Picasso',
