@@ -82,32 +82,22 @@ var createSongRow = function(songNumber, songName, songLength) {
      }
  };
  var findParentByClassName = function(element, wantedClass) {
+ 		if (!element) {
+    	return console.log('Bad element');
+    }
 	      // Assign a variable to a parent element we are checking
      var currentParent = element.parentElement;
-
-     while(currentParent.className != wantedClass){
-        currentParent = currentParent.parentElement;
-  }
-
-     return currentParent;
-	 
-	 
-	 
-      if(currentParent) {
-            while (currentParent.className && currentParent.className != wantedClass) {
-                currentParent = currentParent.parentElement;
-            }
-             if (currentParent.className == wantedClass) {
-                    alert('Parent Found');
-                } 
-             else {
-                    alert("No parent found with that class name");
-                }      
-        } 
-             else {
-                    alert('No parent found')
-        }
-};
+   		
+      if(!currentParent) {
+      	return console.log('No parent found');
+      }
+      
+     while (currentParent && currentParent.className !== null && currentParent.className !== wantedClass) {
+       currentParent = currentParent.parentElement;
+     }
+     
+     return currentParent ? currentParent : console.log("No parent found with that class name");
+   }
  // Always return the song item regardless of the song element selected
 var getSongItem = function(element) {
 
@@ -168,7 +158,11 @@ var getSongItem = function(element) {
          
            // Only target individual song rows during event delegation
          if (event.target.parentElement.className === 'album-view-song-item') {
-             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+             var songItem = getSongItem(event.target);
+
+            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+               songItem.innerHTML = playButtonTemplate;
+
          }
      });
         
