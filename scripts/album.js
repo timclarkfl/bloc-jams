@@ -144,14 +144,4 @@ var createSongRow = function(songNumber, songName, songLength) {
  	
 	});
 
-	var albumArray = [albumPicasso, albumMarconi, albumCheckpoint];
-	var albumToggle = document.getElementsByClassName('album-cover-art')[0];
-	var index = 1;
 
-	albumToggle.addEventListener('click', function() {
-	  setCurrentAlbum(albumArray[index]);
-	  index++;
-	  if (index === albumArray.length) {
-		index = 0;
-	  }
-	});
