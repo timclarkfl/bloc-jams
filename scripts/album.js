@@ -103,7 +103,6 @@ var createSongRow = function(songNumber, songName, songLength) {
      	 // #3
      	 return $row;
  	};
- };
 
  var setCurrentAlbum = function(album) {
      // #1
