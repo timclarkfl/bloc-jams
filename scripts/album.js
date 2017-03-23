@@ -173,4 +173,3 @@ $(document)
 		$previousButton.click(previousSong);
 		$nextButton.click(nextSong);
 	});
->>>>>>> checkpoint19
