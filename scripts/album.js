@@ -10,13 +10,15 @@ var createSongRow = function(songNumber, songName, songLength) {
 		if (currentlyPlayingSongNumber !== null) {
 
 			var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+			currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
 			currentlyPlayingCell.html(currentlyPlayingSongNumber);
 		}
 		if (currentlyPlayingSongNumber !== songNumber) {
-
-			$(this).html(pauseButtonTemplate);
+			
 			setSong(songNumber);
-		    currentSoundFile.play();
+			currentSoundFile.play();
+			$(this).html(pauseButtonTemplate);
+			currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 			updatePlayerBarSong();
 
 		} else if (currentlyPlayingSongNumber === songNumber) {
