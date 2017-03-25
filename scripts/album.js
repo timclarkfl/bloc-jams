@@ -25,7 +25,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 			
       // Conditional statement that checks if the currentSoundFile is paused
       // Use Buzz's isPaused() method on currentSoundFile to check if the song is paused or not.
-        if ( currentSoundFile.isPaused() ) {
+        if (currentSoundFile.isPaused()) {
 
         // Update the song's buttons to pause
         $(this).html(pauseButtonTemplate);
@@ -51,7 +51,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
   };
 
-var onHover = function(event) {
+	var onHover = function(event) {
         var songNumberCell = $(this)
             .find('.song-item-number');
         var songNumber = parseInt(songNumberCell
